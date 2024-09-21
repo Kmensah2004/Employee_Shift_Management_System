@@ -1,4 +1,4 @@
-const employees = [ {  name: 'Dejalie', 
+const employees = [ {  name: 'Dejalie', // intialized employees array/list
     shifts: [ 
     { day: 'Tuesday', hours: 7 }, 
      { day: 'Thursday', hours: 5 }
@@ -26,3 +26,20 @@ function displayEmployeeShifts(employee) {
     });
 }
 displayEmployeeShifts(employees[2]);
+
+//Task 3
+function assignShift(employeeName, day, hours) {
+    const employee = employees.find(em => em.name === employeeName); // Find the employee by name
+    if (employee) {
+        const existshift = employee.shifts.find(shift => shift.day === day);// If employee found, check if they already have a shift that day
+        if (existshift) {
+            console.log(`Error: ${employeeName} already has a shift on ${day}.`);
+        } else {
+            employee.shifts.push({ day, hours }); // Assign new shift if no shift exists for that day
+            console.log(`Assigned ${hours} hours shift to ${employeeName} on ${day}.`);
+        }
+    }
+}
+
+console.log("Assigning a new shift:");
+assignShift('Raymond', 'Friday', 6);
