@@ -29,7 +29,7 @@ displayEmployeeShifts(employees[2]);
 
 //Task 3
 function assignShift(employeeName, day, hours) {
-    const employee = employees.find(em => em.name === employeeName); // Find the employee by name
+    const employee = employees.find(emp => emp.name === employeeName); // Find the employee by name
     if (employee) {
         const existshift = employee.shifts.find(shift => shift.day === day);// If employee found, check if they already have a shift that day
         if (existshift) {
@@ -60,3 +60,18 @@ function calculateTotalHours(employeeName)
 calculateTotalHours('Kosi');
 
 //Task 5
+function listAvailableEmployees(day)
+{console.log(`Employee is available on ${day}:`); 
+    const isAvailable = employees.find(shift => shift.day === day); // Iterates over employees and check who is free on the given day
+    employees.forEach(employee => {
+    if (isAvailable ){
+        console.log(employee.name);
+      {
+
+      }
+    }
+});
+}
+
+ //utilized listAvailableEmployees
+listAvailableEmployees('Tuesday');
